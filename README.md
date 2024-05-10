@@ -1,10 +1,10 @@
 # Manage Property - BitProp
 
-### research and thought process fo the project 
+### Research and thought process for the project 
 
-In my tought and research process identified System Requirements. it's evident that the system needs user authentication (both regular users and admins), CRUD (Create, Read, Update, Delete) operations for properties and admins,email notifications and possibly search functionality for filtering properties or admins.
+In my thought and research process identified System Requirements. it's evident that the system needs user authentication (both regular users and admins), CRUD (Create, Read, Update, Delete) operations for properties and admins, email notifications, and possibly search functionality for filtering properties or admins.
 I also looked at existing solutions, before starting to build from scratch, it's always beneficial to research existing solutions or frameworks that might meet your requirements. I looked into PHP frameworks like Laravel or Symfony, which provide built-in authentication and CRUD functionalities, along with a robust architecture for scalability.
-My Database Design is based on the CRUD operations and relationships between entities (such as users, admins, and properties),then I designed the database schema.creating tables for users, admins, properties, and additional tables for relationships like saved properties and property images.
+My Database Design is based on the CRUD operations and relationships between entities (such as users, admins, and properties), then I designed the database schema. creating tables for users, admins, properties, and additional tables for relationships like saved properties and property images.
 
 For Authentication and Authorization, Implemented user authentication and authorization mechanisms. For regular users, this involved email/password-based authentication, while admins have a separate authentication flow. using sessions or tokens to manage user sessions and permissions.
 I Implemented CRUD functionality for managing properties and admins. This includes forms for creating/updating properties or admins, listing properties/admins, and handling delete operations securely (such as confirming deletion and verifying permissions).
@@ -49,7 +49,7 @@ I had an issue with storing the images as well as they were not displaying one u
 ## Code explained 
 (here I will write the file name and explain what it does)
 
-# home.php :
+### home.php :
 
 The code includes two PHP files: connect.php and save_send.php. connect.php contains the database connection details and establishes a connection to the database. save_send.php handles saving and sending functionality related to the properties.
 Cookie Check: It checks if a user ID is stored in a cookie named user_id. If it exists, the user ID is retrieved and stored in the variable $user_id. If not, $user_id is set to an empty string.
@@ -62,7 +62,7 @@ Listings Section: Displays the latest property listings from the database. It re
 JavaScript Interaction: There's a script at the end that handles an input range element (#range) and updates the value displayed (#output) based on user input.
 External Libraries: It includes Font Awesome and SweetAlert libraries for icons and notifications, respectively.
 
-# update.php : 
+### update.php : 
 
 User Information Update: It retrieves the user's information from the database based on the user ID obtained from the cookie. This information is used to prefill the input fields in the HTML form.
 Form Submission Handling: If the form is submitted ($_POST['submit'] is set), it performs the following actions:
@@ -74,7 +74,7 @@ Displays success or warning messages based on the outcome of the update operatio
 HTML Markup: The script then renders an HTML page with a form for updating the user's account information. The form includes input fields for name, email, phone number, and password.
 External Libraries: It includes external libraries such as Font Awesome and SweetAlert for icons and notifications, respectively.
 
-# mail.php : 
+### mail.php : 
 
 This code is used to send an email notification using the Mailtrap service It includes necessary classes and dependencies using the require statement and the Composer autoloader.
 Mailtrap Configuration: It sets up the Mailtrap configuration by providing the API key. This key is used to authenticate and authorize access to the Mailtrap service.
@@ -84,7 +84,7 @@ Email Sending: It sends the composed email using the Mailtrap client. The sendin
 Response Handling: It retrieves the response from the Mailtrap service and converts it to an array using the ResponseHelper::toArray() method. This response may contain information about the status of the email-sending operation.
 Debugging: It uses var_dump to output the response array for debugging purposes.
 
-# register.php
+### register.php
 
 This code handles user registration functionality for a web application, this code allows users to register for the web application by providing their name, email, number, and password. It ensures data security through input sanitization and prevents duplicate email registrations. After successful registration, it authenticates the user and sets a cookie for future sessions..Form Submission Handling: If the registration form is submitted ($_POST['submit'] is set), it proceeds with user registration.
 Data Sanitization: It sanitizes user input data obtained from the registration form fields (name, email, number, password, confirm password) using filter_var and FILTER_SANITIZE_STRING to prevent SQL injection and cross-site scripting (XSS) attacks.
@@ -95,7 +95,7 @@ HTML Form: It contains an HTML form for user registration. The form includes fie
 JavaScript and CSS Includes: It includes links to external JavaScript libraries (SweetAlert) and custom CSS and JavaScript files for styling and functionality.
 Footer and Message Components: It includes footer and message components, likely for displaying notifications or messages to the user.
 
-# contact.php 
+### contact.php 
 
 This code facilitates user interaction with the website through a contact form. It ensures data security, prevents duplicate messages, and provides feedback to the user upon form submission. Additionally, it includes an FAQ section and styling for the webpage. .Form Submission Handling: It checks if the form with the name sent has been submitted (isset($_POST['send'])). If the form is submitted, it proceeds with the message-sending process.
 Data Sanitization: It sanitizes the user input data obtained from the contact form fields (name, email, number, and message) using filter_var and FILTER_SANITIZE_STRING to prevent SQL injection and cross-site scripting (XSS) attacks.
@@ -104,7 +104,7 @@ Displaying Messages: It displays success or warning messages based on the result
 HTML Form: It contains an HTML form for contacting the website. The form includes fields for the user's name, email, number, and message. Upon submission, it sends the message to the server for processing.
 FAQ Section: It includes a section for frequently asked questions (FAQs) with collapsible boxes containing questions and answers.
 
-# post_property.php 
+### post_property.php 
 
 This code allows authenticated users to submit property postings through a form, handles the upload of property images, and stores the property information in a database. It also provides feedback to the user upon successful or unsuccessful submission. Data Sanitization: It sanitizes user input data obtained from various fields of the property posting form, such as property name, price, address, etc., using filter_var with FILTER_SANITIZE_STRING. This helps prevent SQL injection and XSS attacks.
 File Upload Handling: It handles the upload of property images (image_01, image_02, image_03, image_04, image_05) using move_uploaded_file. Before uploading, it checks the file size and ensures that it doesn't exceed a certain limit.
@@ -112,7 +112,7 @@ Checkbox Handling: It handles checkboxes related to property amenities (lifts, s
 Database Insertion: It inserts the sanitized form data into the property table in the database using a prepared statement.
 Success and Warning Messages: It provides success and warning messages based on the outcome of the property posting process.
 
-# search.php 
+### search.php 
 
 This code combines PHP and HTML to create a dynamic search page for property listings, allowing users to filter and view listings based on their preferences .HTML Head Section: It contains the HTML head section with meta tags, title, and links to external CSS and JavaScript files (like Font Awesome and custom styles and scripts).
 User Header: It includes a user header component. This could be a navigation bar or some other user-specific information displayed at the top of the page.
@@ -124,7 +124,7 @@ JavaScript for Filter: It includes JavaScript to handle the filter button's clic
 External Scripts and Footer: It includes external JavaScript libraries and a footer component.
 Custom JavaScript: Finally, it includes custom JavaScript code to handle the filter section's close button.
 
-# admins.php
+### admins.php
 
 This code is  for an admin panel page where administrators can manage other administrators. Admin Authentication: It checks if the admin_id cookie is set. If it is set, it assigns the value of the admin_id cookie to the $admin_id variable; otherwise, it assigns an empty string to $admin_id and redirects the user to the login page.
 Admin Deletion: If the form with the name delete is submitted, it retrieves the delete_id from the form data and sanitizes it. Then, it verifies if an admin with that ID exists in the database. If it does, it deletes the admin record from the admins table and displays a success message; otherwise, it displays a warning message.
@@ -134,6 +134,6 @@ Admins Section: This section displays a list of admins. It includes a search for
 Search Functionality: If a search query is submitted, it retrieves the search query from the form data, sanitizes it, and performs a database query to select admins whose names match the search query.
 Admin Boxes: It iterates over each admin retrieved from the database and displays their name. If the admin is the currently logged-in admin, it displays additional options like updating the account or registering a new admin. If it's another admin, it displays an option to delete that admin.
 
-# I have explained some of the important files with important code that play a crucial role in the site.
+### I have explained some of the important files with important code that play a crucial role in the site.
 
   
